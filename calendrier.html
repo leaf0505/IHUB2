@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendrier</title>
+  <link rel="stylesheet" href="calendrier.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html#menu">Menu</a></li>
+        <li><a href="index.html#apropos">À propos</a></li>
+        <li><a href="calendrier.html">Calendrier</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="calendar">
+    <h1>Calendrier de la Semaine</h1>
+    <div class="week">
+      <!-- Les jours seront générés par JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    const activitiesData = {
+      "2023-03-13": ["Réunion d'équipe", "Présentation client"],
+      "2023-03-14": ["Déjeuner avec partenaire"],
+      "2023-03-16": ["Atelier de formation"]
+    };
+
+    function generateWeekDates() {
+      const daysOfWeek = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+      const today = new Date();
+      const currentDay = today.getDay();
+      const startOfWeek = new Date(today);
+      startOfWeek.setDate(today.getDate() - (currentDay === 0 ? 6 : currentDay - 1));
+      const weekDates = [];
+      for (let i = 0; i < 7; i++) {
+        const day = new Date(startOfWeek);
+        day.setDate(startOfWeek.getDate() + i);
+        weekDates.push(day);
+      }
+      return weekDates;
+    }
+
+    const weekContainer = document.querySelector('.week');
+    const weekDates = generateWeekDates();
+    weekDates.forEach((date, index) => {
+      const dayElement = document.createElement('div');
+      dayElement.classList.add('day');
+      const today = new Date();
+      if (date.toDateString() === today.toDateString()) {
+        dayElement.classList.add('today');
+      }
+      const dayName = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"][index];
+      dayElement.innerHTML = `<strong>${dayName}</strong><br>${date.getDate()} ${date.toLocaleString('fr-FR', { month: 'long' })}`;
+      const dateKey = date.toISOString().split('T')[0];
+      const activities = activitiesData[dateKey] || [];
+      const activitiesContainer = document.createElement('div');
+      activitiesContainer.classList.add('activities');
+      if (activities.length > 0) {
+        activities.forEach(activity => {
+          const activityElement = document.createElement('div');
+          activityElement.classList.add('activity');
+          activityElement.textContent = activity;
+          activitiesContainer.appendChild(activityElement);
+        });
+      } else {
+        activitiesContainer.textContent = "Aucune activité";
+      }
+      dayElement.appendChild(activitiesContainer);
+      weekContainer.appendChild(dayElement);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connexion</title>
+  <link rel="stylesheet" href="connexion.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html#menu">Menu</a></li>
+        <li><a href="index.html#apropos">À propos</a></li>
+        <li><a href="calendrier.html">Calendrier</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="connexion">
+    <form id="login-form">
+      <h2>Connexion Administrateur</h2>
+      <div class="input-box">
+        <i class='bx bxs-user'></i>
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-box">
+        <i class='bx bxs-lock-alt'></i>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="forgot-pwd">
+        <a href="#">Mot de passe oublié ?</a>
+      </div>
+      <button type="submit">Se connecter</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

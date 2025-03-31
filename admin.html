@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administration</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html#menu">Menu</a></li>
+        <li><a href="index.html#apropos">À propos</a></li>
+        <li><a href="calendrier.html">Calendrier</a></li>
+        <li><a href="connexion.html">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="admin">
+    <h1>Page Administrateur</h1>
+
+    <!-- Gestion des Activités -->
+    <div class="admin-section">
+      <h2>Gestion des Activités</h2>
+      <form id="activity-form">
+        <div class="input-box">
+          <label for="activity-name">Nom de l'activité :</label>
+          <input type="text" id="activity-name" name="activity-name" required>
+        </div>
+        <div class="input-box">
+          <label for="activity-day">Jour de l'activité :</label>
+          <select id="activity-day" name="activity-day" required>
+            <option value="Lundi">Lundi</option>
+            <option value="Mardi">Mardi</option>
+            <option value="Mercredi">Mercredi</option>
+            <option value="Jeudi">Jeudi</option>
+            <option value="Vendredi">Vendredi</option>
+            <option value="Samedi">Samedi</option>
+            <option value="Dimanche">Dimanche</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <label for="activity-action">Action :</label>
+          <select id="activity-action" name="activity-action" required>
+            <option value="add">Ajouter</option>
+            <option value="remove">Supprimer</option>
+          </select>
+        </div>
+        <button type="submit">Valider</button>
+      </form>
+    </div>
+
+    <!-- Gestion des Plats -->
+    <div class="admin-section">
+      <h2>Gestion des Plats</h2>
+      <form id="dish-form">
+        <div class="input-box">
+          <label for="dish-select">Sélectionner un plat :</label>
+          <select id="dish-select" name="dish-select" required>
+            <option value="Plat1">Plat 1</option>
+            <option value="Plat2">Plat 2</option>
+            <option value="Plat3">Plat 3</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <label for="dish-action">Action :</label>
+          <select id="dish-action" name="dish-action" required>
+            <option value="add">Ajouter</option>
+            <option value="remove">Retirer</option>
+          </select>
+        </div>
+        <button type="submit">Valider</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
